@@ -9,6 +9,7 @@ scripts/*
 !scripts/export_ris.py
 !scripts/openalex_discovery.py
 !scripts/openalex_paginated.py
+!scripts/screen_focus.py
 !tests/
 tests/*
 !tests/test_export_ris.py
