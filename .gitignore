@@ -13,3 +13,11 @@ scripts/*
 !tests/
 tests/*
 !tests/test_export_ris.py
+
+!REVIEW_REPORT.md
+!scripts/screen_v2.py
+!scripts/audit_zotero_v2.py
+!scripts/make_review_outputs.py
+!scripts/review_samples.py
+!tests/test_screen_v2.py
+!tests/test_audit_zotero_v2.py
