@@ -1,0 +1,36 @@
+version: 1
+name: rice_nursery_water_deficit_2026
+notes: >-
+  Four independent directions; no year restriction. Search is preliminary and capped at 150 records
+  per query to protect shared quota; a capped result is explicitly incomplete. Chinese databases require manual access.
+chinese_keywords: [水稻, 工程化育秧, 机插育秧, 苗盘, 育秧基质, 灌水管理, 间歇灌水, 水分亏缺, 反复干旱, 干旱预适应, 复水恢复, 称重法, 称重式蒸渗仪, 蒸散, 水分平衡, 亏缺强度, 循环次数]
+chinese_manual_queries:
+  - '(水稻 OR 水稻秧苗) AND (机插育秧 OR 工程化育秧 OR 苗盘 OR 育秧基质) AND (灌水 OR 水分)'
+  - '(水稻 OR 秧苗) AND (反复干旱 OR 水分亏缺 OR 干旱预适应) AND (复水 OR 恢复)'
+  - '(水稻 OR 作物) AND (称重法 OR 称重式蒸渗仪) AND (蒸散 OR 耗水 OR 水分平衡)'
+  - '(水分亏缺 OR 干旱) AND (强度 OR 持续时间 OR 循环次数 OR 累积亏缺) AND 复水'
+queries:
+  - id: A_nursery
+    description: A mechanized rice nursery and irrigation
+    query: 'TS=((rice OR "Oryza sativa") AND (nurser* OR "seedling tray*" OR "mechanical transplant*" OR "mechanized transplant*") AND (water OR irrigation OR substrate))'
+    database: WOS
+    sort: PY+D
+    enabled: true
+  - id: B_recovery
+    description: B rice seedlings repeated drought and recovery
+    query: 'TS=((rice OR "Oryza sativa") AND (seedling* OR nurser*) AND ("repeated drought" OR "cyclic drought" OR "drought priming" OR rewatering OR re-watering OR "water deficit"))'
+    database: WOS
+    sort: PY+D
+    enabled: true
+  - id: C_weighing
+    description: C weighing and evapotranspiration measurement
+    query: 'TS=((rice OR "Oryza sativa") AND ("weighing lysimeter*" OR "continuous weighing" OR "water balance" OR evapotranspiration) AND (seedling* OR nurser* OR pot* OR tray*))'
+    database: WOS
+    sort: PY+D
+    enabled: true
+  - id: D_design
+    description: D drought severity duration cycles and recovery methods
+    query: 'TS=((rice OR "Oryza sativa") AND (drought OR "water deficit") AND (rewatering OR recovery OR "drought cycle*" OR "repeated drought") AND (duration OR severity OR intensity OR cycle*))'
+    database: WOS
+    sort: PY+D
+    enabled: true

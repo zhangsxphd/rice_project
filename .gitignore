@@ -1,0 +1,11 @@
+*
+!.gitignore
+!README.md
+!PUBLIC_RUN_REPORT.md
+!search_plan.yaml
+!scripts/
+scripts/*
+!scripts/export_ris.py
+!tests/
+tests/*
+!tests/test_export_ris.py
