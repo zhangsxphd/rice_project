@@ -1,0 +1,31 @@
+version: 1
+name: cyclic_deficit_water_use_recovery_cross_crop
+note: >-
+  User-refined focus: water use dynamics under repeated or cyclic deficits and recovery after rewatering.
+  Other species and growth stages are eligible when they inform the process or measurement methods.
+  No year restriction. Four complementary queries are searched separately.
+queries:
+  - id: E_cycle_flux
+    description: Repeated or cyclic drought and plant water use across species
+    query: 'TS=((crop* OR plant* OR seedling*) AND ("repeated drought" OR "cyclic drought" OR "recurrent drought" OR "repeated water deficit" OR "drought priming") AND (transpiration OR evapotranspiration OR "water use" OR "water uptake"))'
+    database: WOS
+    sort: PY+D
+    enabled: true
+  - id: F_rewater_flux
+    description: Rewatering and recovery of plant water use across species
+    query: 'TS=((crop* OR plant* OR seedling*) AND (drought OR "water deficit") AND (rewatering OR "re-watering" OR rehydration) AND (transpiration OR evapotranspiration OR "water use" OR "water uptake"))'
+    database: WOS
+    sort: PY+D
+    enabled: true
+  - id: G_weighing
+    description: Weighing and gravimetric measurements in drought or rewatering
+    query: 'TS=((crop* OR plant*) AND ("weighing lysimeter*" OR "continuous weighing" OR gravimetric) AND (drought OR "water deficit" OR rewatering))'
+    database: WOS
+    sort: PY+D
+    enabled: true
+  - id: H_dose
+    description: Deficit exposure timing or intensity and water-use recovery
+    query: 'TS=((crop* OR plant*) AND (drought OR "water deficit") AND (repeated OR cyclic OR duration OR intensity) AND (rewatering OR recovery) AND (transpiration OR evapotranspiration OR "water use"))'
+    database: WOS
+    sort: PY+D
+    enabled: true

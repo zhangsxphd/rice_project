@@ -32,4 +32,12 @@ for key,query in QUERIES.items():
   if page*200>=total:row['stop_reason']='total_exhausted';row['truncated']=bool(row.get('warnings'));break
   if not hits:row['stop_reason']='empty_page_before_total';break
   page+=1;time.sleep(.2)
+ ids=[]
+ for page_file in row['page_files']:
+  ids.extend(item.get('id') for item in json.loads(Path(page_file).read_text()).get('results',[]))
+ duplicate_count=len([value for value in ids if value])-len(set(value for value in ids if value))
+ row['pagination_validation']={'unique_ids':len(set(value for value in ids if value)),'duplicate_id_occurrences':duplicate_count,'missing_ids':sum(not value for value in ids)}
+ if duplicate_count or row['pagination_validation']['missing_ids']:
+  row['truncated']=True;row.setdefault('warnings',[]).append('Duplicate or missing IDs; completeness uncertain.')
+ row['collection_complete']=row.get('stop_reason')=='total_exhausted' and not row['truncated']
  (root/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2));print(key,'hits',row['total_hits'],'collected',row['collected'],'pages',row['pages'],'truncated',row['truncated'],row.get('stop_reason'),flush=True)

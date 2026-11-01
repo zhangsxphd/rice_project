@@ -3,6 +3,7 @@
 !README.md
 !PUBLIC_RUN_REPORT.md
 !search_plan.yaml
+!search_plan_cross_crop.yaml
 !scripts/
 scripts/*
 !scripts/export_ris.py
